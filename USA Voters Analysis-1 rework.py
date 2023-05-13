@@ -77,3 +77,58 @@ def create_plot(df, plot_type, features, titles, figsize, subplot_params, ylabel
 
 
 # In[5]:
+
+
+# Call the create_plot function with the specified parameters
+create_plot(df,
+            plot_type=["pie", "pie"],
+            features=["gender", "race"],
+            titles=[
+            "Distribution of Voters among Gender",
+            "Distribution of Voters among Race"
+            ],
+            figsize=(12, 6),
+            subplot_params=[[1, 2, 1], [1, 2, 2]]
+)
+
+
+# # Visualization 2
+
+# In[12]:
+
+
+# Call the create_plot function with the specified parameters
+create_plot(df,
+            plot_type=["bar", "bar"],
+            features=["educ", "voter_category"],
+            titles=[
+            "Distribution of Education",
+            "Distribution of Voters",
+            ],
+            figsize=(12, 4),
+            subplot_params=[[1, 2, 1], [1, 2, 2]]
+)
+
+
+# # Visualization 3
+
+# In[11]:
+
+
+# Making line plots
+plt.figure(figsize=(12, 4))
+plt.subplot(121)
+sns.kdeplot(df.weight, hue=df.voter_category)
+plt.title("Density of Weight")
+plt.xlabel("Weight")
+plt.ylabel("Distribution")
+
+plt.subplot(122)
+sns.kdeplot(df.ppage, hue=df.voter_category)
+plt.title("Density of PPage")
+plt.xlabel("Age")
+plt.ylabel("Distribution")
+plt.show()
+
+
+# In[ ]:
